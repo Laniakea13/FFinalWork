@@ -1,62 +1,37 @@
-﻿int[] array = new int[10];
-for (int i = 0; i < array.Length; i++)
+﻿void CreateArray(int[] arr1)
 {
-   array[i] = new Random().Next(0, 20);
-   Console.Write(array[i] + " ");
+    for (int i = 0; i < arr1.Length; i++)
+    {
+            arr1[i] = new Random().Next(0,11);
+    }
+}
+void PrintArray(int[] arr)
+{
+   for(int i=0; i<arr.Length; i++)
+   {
+        Console.Write($"{arr[i]}  ");
+   }
 }
 int RunArray(int[] finarray)
 {
     int count = 0;
     for (int i = 0; i < finarray.Length; i++)
     {
-        if(array[i] % 2 == 0) count = count + 1;
+        if(finarray[i] % 2 == 0) count = count + 1;
         else count = count + 0;
     }
     return count;
 }
+
+int[] startArray = new int[15];
+CreateArray(startArray);
+PrintArray(startArray);
 Console.WriteLine();
-Console.Write(RunArray(array));
+Console.WriteLine(RunArray(startArray));
 
-// В двумерном массиве n×k заменить четные элементы на противоположные
+int[] evenArray = new int[RunArray(startArray)];
+CreateArray(evenArray);
+PrintArray(evenArray);
 
 
 
-/*void FillArray(int[] arr1)
-{
-    for (int i = 0; i < arr1.GetLength(0); i++)
-    {
-            arr1 = new Random().Next(1,10);
-    }
-}
-void PrintArray(int[] matr);
-{
-   for(int i=0; i<matr.GetLength(0); i++)
-   {
-        Console.Write($"{matr[i]}  ");
-       Console.WriteLine();
-   }
-}
-/*void EvenArray(int[,] matr)
-{
-    for (int i = 0; i < matr.GetLength(0); i++)
-    {
-        for (int j = 0; j < matr.GetLength(1); j++)
-        {
-            if(matr[i,j] % 2 == 0) matr[i,j] = matr[i,j] * -1;
-        }
-    }
-}
-
-Console.Write("Введите значение n -");
-int n= int.Parse(Console.ReadLine());
-Console.Write("Введите значение k -");
-int k= int.Parse(Console.ReadLine());
-Console.WriteLine();
-
-int [,] matrix = new int[n,k];
-
-FillArray(matrix);
-PrintArray(matrix);
-EvenArray(matrix);
-Console.WriteLine();
-PrintArray(matrix);*/
