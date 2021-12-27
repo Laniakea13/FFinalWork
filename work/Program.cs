@@ -12,7 +12,7 @@ void PrintArray(int[] arr)
         Console.Write($"{arr[i]}  ");
    }
 }
-int RunArray(int[] finarray)
+int[] RunArray(int[] finarray)
 {
     int count = 0;
     for (int i = 0; i < finarray.Length; i++)
@@ -20,18 +20,17 @@ int RunArray(int[] finarray)
         if(finarray[i] % 2 == 0) count = count + 1;
         else count = count + 0;
     }
-    return count;
+    int[] fin = new int[count];
+    int index = 0;
+     for (int i = 0; i < finarray.Length; i++)
+     {
+        if(finarray[i] % 2 ==0) fin[index++] = finarray[i];
+     }
+  return fin;
 }
-
-int[] startArray = new int[15];
+int[] startArray = new int[10];
 CreateArray(startArray);
 PrintArray(startArray);
 Console.WriteLine();
-Console.WriteLine(RunArray(startArray));
-
-int[] evenArray = new int[RunArray(startArray)];
-CreateArray(evenArray);
-PrintArray(evenArray);
-
-
-
+RunArray(startArray);
+PrintArray(RunArray(startArray));
